@@ -1,9 +1,12 @@
 body{
   font-family: 'Ubuntu', sans-serif;
-  margin:;
+  margin:0;
 }
 
 header{
-  height:8vh;
+  height:10vh;
   background-color:cyan;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
