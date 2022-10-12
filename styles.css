@@ -1,12 +1,55 @@
-body{
+body {
   font-family: 'Ubuntu', sans-serif;
   margin:0;
+  background:#282828;
 }
 
-header{
-  height:10vh;
-  background-color:cyan;
-  display:flex;
-  justify-content:center;
+header {
+  height:100vh;
+  background:linear-gradient(325deg,rgb(46, 0, 63),rgb(14, 0, 139));
+  display:grid;
   align-items:center;
+  justify-content:center;
 }
+header h1,h2 {
+  color:#ffffff;
+  text-align:center;
+}
+header img {
+  display:flex;
+  transform:rotate(90deg);
+  justify-self: center;
+}
+main {
+  padding:20px;
+  color:#ffffff;
+}
+.graphique {
+  background:blue;
+  width:80vw;
+  height:60vh;
+}
+footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background-color:rgb(24, 24, 24);
+  height:15vh;
+  margin-top:3vh;
+  color:#ffffff;
+  padding:1.5em;
+}
+footer a{
+  text-decoration:none;
+  color:#ffffff;
+}
+footer a:hover{
+  color:#8f8f8f;
+}
+footer p{
+  font-size:0.8rem;
+}
+.logouniv{
+  padding-right:2vw;
+  padding-bottom:1vh;
+} 
