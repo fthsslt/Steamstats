@@ -20,6 +20,9 @@ header img {
   transform:rotate(90deg);
   justify-self: center;
 }
+header img:hover{
+  cursor:pointer;
+}
 main {
   padding:20px;
   color:#ffffff;
