@@ -1,67 +1,46 @@
-body {
-  font-family: 'Ubuntu', sans-serif;
-  margin:0;
-  background:#282828;
-}
-
-header {
-  height:100vh;
-  background:linear-gradient(325deg,rgb(46, 0, 63),rgb(14, 0, 139));
-  display:grid;
-  align-items:center;
-  justify-content:center;
-}
-header h1,h2 {
-  color:#ffffff;
-  text-align:center;
-}
-html{
-  scroll-behavior:smooth; 
-}
-.imgscroll{
-  display:flex;
-  transform:rotate(90deg);
-  justify-self: center;
-  transition:0.8s;
-}
-.imgscroll:hover{
-  cursor:pointer;
-  -webkit-transition: bottom 1s;
-	-webkit-transform: translateY(35%) rotate(90deg) scale(1.3);
-}
-.imgscroll:hover{
-  transition:0.8s;
-}
-main {
-  padding:20px;
-  color:#ffffff;
-}
-.graphique {
-  background:blue;
-  width:80vw;
-  height:60vh;
-}
-footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background-color:rgb(24, 24, 24);
-  height:15vh;
-  margin-top:3vh;
-  color:#ffffff;
-  padding:1.5em;
-}
-footer a{
-  text-decoration:none;
-  color:#ffffff;
-}
-footer a:hover{
-  color:#8f8f8f;
-}
-footer p{
-  font-size:0.8rem;
-}
-.logouniv{
-  padding-right:2vw;
-  padding-bottom:1vh;
-} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="img/logosteam.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="json.js"></script>
+    <title>Statistiques Steam</title>
+</head>
+    
+<body>
+    <header>
+        <div>
+            <h1>STATISTIQUES STEAM</h1>
+            <h2>Découvrez la fréquence de joueur pour les 10 jeux les plus jouez sur Steam !</h2>
+        </div>
+        <div class="imgscroll">
+            <a href="#scroll"><img src="img/fleche.png" width="35" height="50" alt="image d'une flèche blanche cliquable"></a>
+        </div>
+    </header>
+    <main>
+        <br>
+        <scroll-page id="scroll">
+            <p>Vous découvriez ci-dessous les statistiques des jeux les plus joués chaque jour sur via la plateforme Steam.</p>
+        </scroll-page>
+        <br>
+        <div class="graphique"></div>
+    </main>
+    <footer>
+        <div class="textfooter">
+            <p>Le contenu de cette page est tiré des informations disponibles sur le site web Steam :<a href="https://steamdb.info/graph/?compare=440,570,730,252490,271590,431960,578080,1172470,1203220,1599340"><br>Base de données</a> & <a href="https://steamcommunity.com/dev?l=french">API</a></p>
+            <p>Site réalisé par Thomas Devred et Fathallah Zobir,<br>étudiants de la formation MMI à l'Université Gustave Eiffel.</p> 
+        </div>
+        <div class="imgfooter">
+            <img class="logouniv" src="img/logouniv.webp" height="50">
+            <img src="img/logosteam.webp" height="70" width="70">
+        </div>
+        
+    </footer>
+</body>
+</html>
