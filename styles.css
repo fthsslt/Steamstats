@@ -15,13 +15,22 @@ header h1,h2 {
   color:#ffffff;
   text-align:center;
 }
-header img {
+html{
+  scroll-behavior:smooth; 
+}
+.imgscroll{
   display:flex;
   transform:rotate(90deg);
   justify-self: center;
+  transition:0.8s;
 }
-header img:hover{
+.imgscroll:hover{
   cursor:pointer;
+  -webkit-transition: bottom 1s;
+	-webkit-transform: translateY(35%) rotate(90deg) scale(1.3);
+}
+.imgscroll:hover{
+  transition:0.8s;
 }
 main {
   padding:20px;
