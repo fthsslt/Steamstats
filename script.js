@@ -1,401 +1,233 @@
-window.onload = function(){
-    $.get("data.json", function(data){
-        console.log(data);
-    });
+async function fetchData() {
+    const response = await fetch("data.json")
+    const data = await response.json();
+    return data;
 }
-var ctx=document.getElementById("graphik1"); //Graph Team Fortress 2
-var graphik1=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",   
-                data:[//janv
-                    129305,127615,127787,125895,125063,109845,102363,90470,89359,88347,84947,79984,81539,80372,81135,76664,76607,72415,68394,74160,78656,78694,80786,73597,73505,69179,77796,80505,86358,84910,76830,
-                    //fev
-                    76589,70068,77343,76772,71221,82449,73043,74204,71998,74545,75948,75448,77218,71629,68088,71440,83576,79728,84031,89703,93398,92764,80257,84296,87304,89949,87355,82528,
-                    //mars
-                    82280,73231,79075,79568,83404,86893,80145,77401,74800,81459,82531,88833,88590,81417,83295,72010,84766,88272,92765,91700,84159,84792,72189,83399,84477,84956,90050,82283,76240,61026,76224,
-                    //avril
-                    79577,84628,91158,86944,82470,80238,76639,86256,86593,90784,82271,82477,72912,80030,84390,94913,92031,89058,85296,74963,85515,84856,90846,89906,83429,82179,71785,82174,85353,90127,
-                    //mai
-                    85264,81102,77805,64781,62756,71994,76384,78620,73179,72598,71364,75774,74663,77736,77652,77715,71689,60878,68695,72282,72014,76335,80349,79329,68798,83475,83536,91778,91626,88333,84439,
-                    //juin
-                    70192,77831,81688,84666,86760,84593,82735,74650,83130,83420,86044,83321,85823,83824,77339,88342,94853,109934,111612,111292,106277,104559,117057,135173,138550,138179,138590,137068,135725,137953,
-                    //juillet
-                    139355,139018,137921,135978,135315,131056,134701,133531,130432,121380,117417,111796,100169,121162,122936,121378,124382,120117,114146,106799,117686,112504,113348,112369,113103,110825,103091,118669,123221,121671,113445,
-                    //août
-                    104847,111778,98286,114662,111020,109518,119830,116430,111485,102653,117091,108693,108080,112244,114087,108371,101543,113561,112233,115236,121777,114558,116195,99893,112553,114272,110077,118283,107355,113332,95468,
-                    //septembre
-                    101743,103675,118079,134069,130898,110623,96784,107964,112074,119281,117701,107278,105696,94681,97008,103499,114664,117432,107596,110426,94838,104759,107088,107604,109961,104828,103101,94155,105509,108420,
-                ],
+fetchData().then(data => {
+    const dataDay = data.map(item => item.DateTime);
+    const dataTeamFortress2 = data.map(item => item.TeamFortress2);
+    const dataDota2 = data.map(item => item.Dota2);
+    const dataCSGO = data.map(item => item.CSGO);
+    const dataTerraria = data.map(item => item.Terraria);
+    const dataGTAV = data.map(item => item.GTAV);
+    const dataWallpaperEngine = data.map(item => item.WallpaperEngine);
+    const dataPUBG = data.map(item => item.PUBG);
+    const dataNaraka = data.map(item => item.NARAKA);
+    const dataApexLegends = data.map(item => item.ApexLegends);
+    const dataLostArk = data.map(item => item.LostArk);
+    var ctx = document.getElementById("graphik1"); //Graph Team Fortress 2
+    const graphik1 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:"Nb de joueurs",
+                data: dataTeamFortress2,
                 borderWidth:1,
                 borderColor:'#00a70e',
                 backgroundColor:'#00a70e',
                 options: {
                     scales: {
                         y:Chart.defaults.scales.linear.min = 0
-                    }
+                    },
                 }
-        }]
-    }
-})
-var ctx=document.getElementById("graphik2"); //Dota 2
-var graphik2=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    701209,761107,723708,711905,667797,683772,722520,746546,748270,649285,666844,652170,666779,704897,759140,748944,658583,662666,683249,697070,722724,785669,787609,698553,683797,689064,685230,687500,719590,736619,645732,
-                    //fev
-                    647090,646604,655853,684371,717900,728213,656134,658249,647197,654581,678340,722671,713912,606069,634776,628817,637712,663239,718988,716977,635525,642124,656662,680600,661385,685785,693611,609882,
-                    //mars
-                    607820,591257,604533,638915,668034,663120,638388,633172,611092,654721,691301,735576,730452,658550,653160,661409,664176,702065,732967,733661,658559,660251,657839,661084,682288,721809,743726,667824,660339,636432,641765,
-                    //avril
-                    672955,705398,734735,662819,639055,629573,637621,675577,711987,722648,638896,639732,636720,635395,680358,695682,713865,638759,629763,625649,637162,662176,674463,681992,634652,625323,623517,624845,644277,661582,
-                    //mai
-                    666297,670712,679894,609446,623780,612303,662274,659988,637764,661259,625840,592903,643911,667775,676820,626932,625656,624898,632785,635992,675914,679372,637626,633583,626201,628533,660708,692214,695554,641451,639042,
-                    //juin
-                    630312,658681,659598,683120,698569,648713,603070,636498,649894,654852,682140,699920,677278,600306,625293,638673,655396,678865,695028,639380,635080,639268,609928,626441,644479,702003,646816,647280,639971,635548,
-                    //juillet
-                    648764,670745,686899,648051,635059,630159,624719,612621,625638,667875,599156,596561,609521,615233,641037,657140,672270,625836,622387,578016,606654,612166,634985,653392,622230,621930,612232,586432,606036,636172,661139,
-                    //août
-                    606150,,597707,620403,614760,647607,682044,698620,657713,662973,614086,631838,654017,680751,718258,673047,666861,653588,653605,684139,704990,709538,660659,661799,704790,685209,697922,721415,751789,669831,688368,677372,
-                    //septembre
-                    685456,829357,857329,872372,773645,732197,708173,709695,758876,797785,829448,724238,715125,734848,733296,774592,809976,831933,727789,709921,701776,696142,739429,769219,815276,705316,689677,679241,657005,677343,
-                ],
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik2"); //Dota 2
+    var graphik2 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:"Nb de joueurs",
+                data: dataDota2,
                 borderWidth:1,
                 borderColor:'#e40000',
                 backgroundColor:'#e40000'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik3"); //Counter-Strike: Global Offensive
-var graphik3=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    798402,867147,802899,804344,803469,797182,830034,869250,881051,745151,783116,730785,759311,819812,890445,906996,792579,797267,812721,825195,952320,983565,992455,897652,896113,899565,911275,913875,958585,969791,872819,
-                    //fev
-                    867099,851602,855215,892056,930346,964971,892332,897336,907026,912317,933423,959550,989793,848698,866853,860331,858437,895336,979369,979085,867644,886195,898714,840791,904216,982577,997730,870951,
-                    //mars
-                    878083,865411,833370,921636,992082,963573,846631,852533,823266,837396,933990,993808,970574,837287,833236,819213,865219,929397,992661,961741,859106,862378,861039,867249,930974,988497,974648,860604,845448,834647,857775,
-                    //avril
-                    907091,988925,1016762,889897,837758,831510,823134,890740,953968,944287,831263,863370,851853,852106,949209,914970,910203,850323,822907,839444,836345,891414,904636,896548,844499,800360,829757,842477,867334,902768,
-                    //mai
-                    896132,864464,876108,820351, 816955,814973,903568,884024,815555,814410,807177,801251,826123,817740,833411,786069,799740,832306,835022,815825,875790,875257,833705,799406,823253,858965,914368,932681,886821,823790,835938,
-                    //juin
-                    809755,857481,844840,873635,884564,854341,836077,830607,812338,878625,902934,887863,840048,830677,787131,815691,874841,888644,906968,872130,868270,860313,820734,818548,833198,855647,817909,812268,798738,808462,
-                    //juillet
-                    821872,901496,881860,841259,829798,842990,839525,829474,841238,864271,845782,848298,831308,838217,824655,825424,881284,876251,874214,857109,864113,896012,877675,895357,885085,887220,886328,900249,891072,894774,928329,
-                    //août
-                    889822,927907,906948,881757,910838,904151,936670,919166,713107,882486,886021,884195,895423,925109,909721,936431,1039889,987884,976632,999043,1010603,986054,991521,964145,958536,947881,966390,1025980,1013093,993654,980503,
-                    //septembre
-                    960712,993276,1029453,1035897,950916,941706,939398,938845,1016382,1029224,1062931,943540,932805,941634,948562,1030797,1103223,1077583,967100,938549,937102,933443,997564,1066689,1029255,921864,925270,909753,921840,993507, 
-                    ],
-                    borderWidth:1,
-                    borderColor:'#27387d',
-                    backgroundColor:'#27387d'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik4"); //Terraria
-var graphik4=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    57117,59663,51900,53292,52516,51083,55548,59468,55144,44569,45058,44082,44921,49578,57006,56685,47238,46274,46972,47350,49145,56488,57164,48158,45952,47129,46637,51073,58361,59635,48818,
-                    //fev
-                    49724,50343,51441,51600,57254,57158,46805,45812,44118,42560,44020,49825,48854,38839,38165,35859,35245,40042,46192,43264,35575,35635,35889,33455,38422,46514,42098,33107,
-                    //mars
-                    32241,31405,30701,36656,44948,41315,32177,31515,29382,29371,35332,44247,41162,30646,31047,31617,31816,36533,45090,42967,31932,31699,31038,31592,35759,44587,42124,32129,31514,30796,30732,
-                    //avril
-                    32916,43439,44990,35550,32037,30646,30196,34088,42261,39751,31752,31715,31325,31800,38902,41648,37186,33726,30743,30255,30905,34822,38698,38864,29172,28691,28715,28585,33230,41607,
-                    //mai
-                    42457,36184,34033,29878,30404,32166,41970,39983,32091,32887,31679,31241,35003,43356,41526,32078,32458,32442,31692,35039,42977,41534,32800,32449,32963,34293,38567,45041,42785,37712,35622,
-                    //juin
-                    34807,37537,38959,43537,43022,38350,36686,35646,34880,37286,44864,41309,35828,34625,34091,35766,37265,40002,39312,35375,35245,34062,34257,39192,43175,45495,43137,44018,45005,44597,
-                    //juillet
-                    45778,48790,50902,47875,47834,47299,49529,48184,49343,50256,47318,48802,48598,44155,42871,44219,45662,43590,45120,41732,41931,41331,43241,42947,42272,43037,41523,40724,40527,42365,43756,
-                    //août
-                    40199,39849,39571,38915,38341,40395,41683,38675,39287,37512,37135,37394,38784,39772,36881,36295,35829,35019,35946,39210,38545,34129,34846,32702,32615,33481,36989,38020,34282,34211,32302,
-                    //septembre
-                    30460,37793,38156,37756,31285,28737,29296,27931,30806,37813,38225,27206,27112,27255,28928,30249,38306,37232,29273,27432,27352,26281,29978,37501,36652,27191,27683,43058,50944,71439,
-                ],
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik3"); //Counter-Strike: Global Offensive
+    var graphik3 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataCSGO,
+                borderWidth:1,
+                borderColor:'#27387d',
+                backgroundColor:'#27387d'
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik4"); //Terraria
+    var graphik4 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataTerraria,
                 borderWidth:1,
                 borderColor:'#c6b112',
                 backgroundColor:'#c6b112'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik5"); // Grand Theft Auto V
-var graphik5=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    150372,159258,142431,140079,135742,139114,144532,155722,152326,124610,126779,118337,123704,131971,146071,148425,124858,122318,123470,120164,129143,143343,146824,126222,123034,124808,127058,132467,144881,150941,128739,
-                    //fev
-                    129590,131694,133085,136195,150008,155135,131674,131273,129199,128874,136598,147195,151729,125411,125153,122133,123445,132429,146473,145012,123514,123250,122945,117232,129554,143429,139972,119695,
-                    //mars
-                    116912,116258,114869,126988,140886,135725,104125,109356,104053,105501,119985,138552,136933,115032,115174,117363,119216,129946,147585,145407,119746,117606,117961,118523,129621,145955,143794,119346,118310,117657,119280,
-                    //avril
-                    126205,148074,153902,131781,118906,117483,113547,123400,138006,137567,117996,117234,115832,116732,132951,139097,133664,122159,114239,110911,112256,121752,127496,128958,108363,99572,101756,104164,113578,129979,
-                    //mai
-                    138806,128677,126829,118006,119093,120129,139814,137939,118678,120053,113999,114125,119168,130099,124847,108456,102754,104106,103092,105547,117038,119587,101604,98005,100895,106176,113484,123367,120066,105024,104158,
-                    //juin
-                    101261,109363,114685,124806,127626,120194,116598,113918,113726,120543,133401,132476,121216,117257,114193,121022,126373,133267,133619,123641,123168,120002,105450,120930,125619,129236,119958,117872,117675,118042,
-                    //juillet
-                    124459,128809,130512,125657,125607,125262,126619,128457,134333,137921,130191,128828,123650,122227,125488,130160,133555,126372,126670,123385,125025,130940,137788,144272,139646,177944,180367,179551,185425,191400,197912,
-                    //août
-                    186205,182336,179120,181301,185946,190783,196395,186015,187979,174926,176548,176353,175676,179222,167815,163276,159074,159213,160234,167349,170654,154842,153417,146884,151694,156180,166458,172603,160328,160163,155610,
-                    //septembre
-                    156142,163405,177377,175881,155078,147279,147392,146464,155840,167797,173700,142430,140061,138389,137145,147750,166228,163982,139543,137508,137436,137546,148462,167737,160206,131065,128929,126769,125867,138131,
-                ],
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik5"); // Grand Theft Auto V
+    var graphik5 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataGTAV,
                 borderWidth:1,
                 borderColor:'#ff9500',
                 backgroundColor:'#ff9500'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik6"); // Wallpaper engine
-var graphik6=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    77603,77421,76064,74478,73736,79734,80428,82881,81608,77620,78066,77570,76079,77776,78849,81066,75933,77661,79237,77087,77843,78379,80580,77912,76240,80344,77938,79145,78528,76439,66537,
-                    //fev
-                    72821,74758,74123,74606,78952,85007,84519,88487,87056,85047,84764,85188,85748,80752,82514,81517,81115,82391,83678,82651,78145,79243,81336,79003,78782,81093,80101,74666,
-                    //mars
-                    75120,74918,75577,78506,84356,80778,76887,75448,75615,73507,76938,81437,78893,75062,76387,82317,82081,81472,89032,88374,83600,84137,83748,83245,84716,90559,87744,82681,83911,84590,85653,
-                    //avril
-                    86685,88297,90450,92550,90702,85740,82415,82878,87205,83366,78227,81137,80027,77470,81524,83102,79589,79515,78958,79248,77804,81095,83514,81069,80693,82073,82289,81805,83653,86471,
-                    //mai
-                    83727,82956,83930,81908,80023,77969,83642,83753,80923,81815,82041,81064,79533,83710,79645,75943,79909,81188,78487,77323,82010,83257,76542,75739,78207,80280,82622,85978,83297,78555,77248,
-                    //juin
-                    79065,82774,82105,87337,90820,88371,90373,90018,86319,85275,90932,93200,91347,90535,96388,106210,101649,99746,100936,97988,96725,94999,94470,95439,98042,97286,93330,92265,89787,90437,
-                    //juillet
-                    91185,91865,92278,87946,88849,87333,87312,87069,88526,93193,90605,88825,85330,85007,85015,84248,86060,85580,86337,85110,83496,86031,88914,92025,90016,90054,89631,86414,84077,85497,89317,
-                    //août
-                    85341,84769,87329,83592,84102,87841,91810,96085,93673,89366,83072,82841,81957,82692,81371,82502,80456,81148,81108,85489,87733,84464,86387,79809,82485,81250,83862,87580,85761,86540,87316,
-                    //septembre
-                    85747,87371,91956,94545,89457,88695,88335,90689,92002,92374,94873,93259,92033,96799,96585,91996,99565,99875,93258,92526,91551,90088,93000,98893,94426,90421,89353,88325,90875,106358,
-                ],
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik6"); // Wallpaper engine
+    var graphik6 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataWallpaperEngine,
                 borderWidth:1,
                 borderColor:'#9e14b7',
                 backgroundColor:'#9e14b7'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik7"); // PUBG: Battlegrounds
-var graphik7=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    325101,346215,336367,331819,333813,331935,337494,356557,351766,318253,22055,668706,625564,657135,691794,699792,598428,576680,567516,528575,547706,595781,604711,526863,505694,515678,489753,492345,495759,477696,346254,             
-                    //fev
-                    397262,407619,415508,422878,457191,481932,461305,468317,467435,461856,491760,515551,522447,442296,458401,483587,487746,505977,532115,529134,492578,489072,516443,469031,498762,517585,514654,473313,
-                    //mars
-                    468649,466001,472648,490902,509627,503148,466143,454552,451633,451752,482055,499034,490467,446017,440756,405236,485385,506435,533702,528270,492352,467040,499580,477218,512632,536252,523928,487644,483450,504990,500106,
-                    //avril
-                    523475,527621,526974,498963,482048,462482,448712,469750,511447,491050,443687,447530,487174,483777,510222,524023,518720,482960,465294,461703,455394,478732,480207,481521,450479,442423,448870,447273,455322,470430,
-                    //mai
-                    467271,445167,451653,439176,441946,431607,470056,463782,442090,431128,447497,438767,431497,442394,433331,405220,407292,386083,404809,371394,408363,420015,390308,377483,402940,406847,420024,434814,425461,397136,392725,
-                    //juin
-                    381537,391474,389028,406250,414321,388002,374777,392649,364795,386700,411873,407132,381387,367516,363510,354932,362452,381560,383652,368747,362216,374635,360953,365130,371579,381940,359978,353383,350926,343915,
-                    //juillet
-                    352725,365016,367218,345422,336162,325018,321339,323313,336560,336046,324044,317500,394124,378465,377330,390006,391820,370958,370956,368841,366042,377501,381204,378491,357827,352756,366739,361132,365361,378838,378684,
-                    //août
-                    364301, 356071,360837,332331,374795,376811,377786,375188,374224,379136,373309,385794,383900,392789,387832,376576,375145,370162,373948,384543,385301,367958,366593,375165,369124,376915,390882,396248,373687,374390,373729,
-                    //septembre
-                    359858,375989,398251,391887,375798,374434,408731,406459,413251,412853,442131,423516,425046,422697,419073,433211,450209,450560,415148,400440,411321,398820,412428,448831,428278,395133,388139,401459,395224,396705,
-                ], 
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik7"); // PUBG: Battlegrounds
+    var graphik7 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataPUBG, 
                 borderWidth:1,
                 borderColor:'#1dcec0',
                 backgroundColor:'#1dcec0'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik8"); // Apex Legends
-var graphik8=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    207966,221472,216295,219030,211551,217717,229693,240517,237441,211491,219526,225913,226546,240395,251137,251595,232823,234952,240289,236584,244723,264301,265202,245748,244704,247707,244825,250170,257592,249553,206870,         
-                    //fev
-                    223723,234094,238529,251194,270636,275329,253987,254302,392998,379171,366649,370418,361061,319552,322892,368305,351660,377302,393116,382211,349537,353465,357953,334045,335570,350290,337595,305401,
-                    //mars
-                    303106,288246,287099,309284,329310,313383,283099,281993,288086,289307,316694,334591,325665,294368,301430,300658,302759,288800,330630,331255,297529,295921,323348,324389,335708,354951,348873,320320,324565,338224,340738,
-                    //avril
-                    349925,374363,362499,325366,309664,347803,337498,357530,376328,358113,330792,331281,319887,323486,353052,353829,337718,331303,318278,329009,322677,332861,337545,329286,300784,306628,311367,310385,311885,324208,
-                    //mai
-                    317446,311526,309654,299197,303334,305312,330502,319188,294259,289152,412556,393732,386497,379537,357962,337961,338733,350156,353016,341580,359065,355807,330815,331268,332847,344898,359855,365666,349382,331355,327990,
-                    //juin
-                    330924,332791,334160,344751,339857,336665,312639,329372,312615,327092,336620,324748,306680,302819,306113,303376,321062,320157,309017,301056,288518,353279,339985,337450,329123,319198,303478,297017,326921,316725,
-                    //juillet
-                    326169,325390,321289,314300,311275,321574,317904,322192,327870,326375,325656,327640,322805,320783,321093,321151,329031,318704,323515,347783,342592,348415,341380,338719,332492,336273,344142,327741,336798,339538,337367,
-                    //août
-                    332026,343481,333275,329041,338480,333472,332089,330483,336370,511676,481340,472148,453705,457466,454229,450014,449493,440668,442796,445773,440910,430156,435838,432542,428210,417847,434513,442776,436235,439604,431388,
-                    //septembre
-                    416086,447127,462210,441083,435299,435075,437066,426851,433248,424052,431336,409777,414990,414960,406625,433882,459161,448414,420439,415949,495802,452856,470333,499077,438789,404890,382777,392021,400177,396702,
-                ],
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik8"); // Apex Legends
+    var graphik8 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataApexLegends,
                 borderWidth:1,
                 borderColor:'#db0f9a',
                 backgroundColor:'#db0f9a'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik9"); // NARAKA: BLADEPOINT
-var graphik9=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    136232,139324,137210,137899,132445,134030,129923,124894,121387,121689,120705,115396,116084,113770,109948,110056,112459,109609,109158,127465,119494,115932,113031,109382,111736,107029,107135,102522,98753,92761,74615,      
-                    //fev
-                    83905,86786,88670,88228,94380,98858,103420,105351,104830,104707,106072,105565,106616,133972,130570,123887,118607,118495,132769,138838,142477,142922,139780,143963,146209,148336,145705,149332,
-                    //mars
-                    148909,147569,145039,147240,144267,138613,143519,137928,138791,139864,141584,165976,153655,156400,147806,146206,145924,150852,148173,141352,141104,139207,137400,136335,141491,138089,131270,132068,132259,128170,147390,
-                    //avril
-                    145867,146195,142532,143373,138864,138674,138442,138057,137257,130394,130165,132657,131091,135631,138471,135721,129568,129937,127710,125790,123536,127527,120196,118607,118684,117918,116934,122112,116889,120779,
-                    //mai
-                    120086,123769,126062,121901,123900,126532,129404,121838,123161,129636,124504,122155,116273,112034,102308,103643,104052,103162,101421,93579,126125,122980,123474,118829,118983,119151,121207,117316,111422,111673,108526,
-                    //juin
-                    110223,107981,100430,101887,102314,109375,106879,105617,98262,96882,96877,93382,98779,95963,94076,91609,91056,89352,87100,87024,86911,87629,107845,103373,99928,99683,98753,96902,94881,94772,
-                    //juillet
-                    95267,93975,92940,92230,90504,88856,87877,107178,94646,91947,91796,89737,86597,92325,89302,89746,87408,88080,88014,85919,86183,85680,84226,83814,86282,84910,86475,86255,87071,87385,87476,
-                    //août
-                    87406,85960,85226,87580,80660,113226,108365,96300,97864,95785,93676,105124,96911,94755,88010,89276,88467,86530,162283,159465,165942,162269,160189,150904,150670,144908,147263,151473,153876,150927,145428,
-                    //septembre
-                    143492,149100,148935,144010,143975,144056,142544,139059,140244,130126,131284,132629,137933,136732,149517,146055,146960,138642,137929,138286,135226,131077,136612,135403,125592,125137,125099,120933,131519,139364,
-                ],
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik9"); // NARAKA: BLADEPOINT
+    var graphik9 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataNaraka,
                 borderWidth:1,
                 borderColor:'#87c015',
                 backgroundColor:'#87c015'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik10"); // Lost Ark
-var graphik10=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                    //fév
-                    0,0,0,0,0,0,0,532476,506946,507123,688736,1325305,1316854,1098921,1119642,1135765,1090827,1102515,1134663,1174722,1074677,993849,949460,915628,881133,930509,962906,856177,
-                    //mars
-                    842508,819652,815473,759648,847376,908335,829633,822383,805722,679494,630067,646991,660051,591163,511063,519268,528089,486390,518719,537588,483641,460199,449751,413761,389102,402922,420758,369916,355086,336539,353933,
-                    //avril
-                    347729,375010,399715,356506,359193,351755,367612,374802,401124,426706,405794,397493,369797,416018,441972,425987,462394,462085,462026,458832,393305,500139,536047,572602,556187,566673,560956,487900,499313,542609,
-                    //mai
-                    586540,568246,567373,493101,573879,578536,588550,637078,623896,591542,574594,508050,423930,481919,563381,579329,583597,584612,524134,441528,440460,648260,646417,673024,668525,615744,733251,709234,704632,801364,737605,
-                    //juin
-                    715223,666383,683981,708926,798621,819349,829155,837419,451615,800400,843598,885968,880727,873694,727629,605751,551016,449382,273010,279843,306156,301666,289060,360567,293284,348754,341678,283820,226472,186986,
-                    //juillet
-                    173512,215308,254128,274205,280685,283863,292516,278280,305384,313083,285210,268757,268748,251334,151989,170008,204940,201638,201865,164256,230377,242342,267406,290788,288234,290423,243626,296884,311828,334027,352852,
-                    //août
-                    352344,340560,281060,156805,252770,151541,185135,203445,220056,181785,116685,121437,131118,137042,133695,147840,171335,225391,239071,228162,248196,240933,227548,187040,224258,238427,252565,264904,245050,216840,209736,
-                    //septembre
-                    130010,110209,125197,173803,179091,172439,147981,118215,183977,197303,212778,205722,203029,194204,223872,202612,217579,232767,218970,211398,175455,203625,145424,195236,214237,204425,188514,152300,226988,195928,
-                ], 
+            }]
+        }
+    })
+    var ctx = document.getElementById("graphik10"); // Lost Ark
+    var graphik10 = new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Nb de joueurs",
+                data: dataLostArk,
                 borderWidth:1,
                 borderColor:'#2b90dd',
                 backgroundColor:'#2b90dd'
-        }]
-    }
-})
-//test graph
-var ctx=document.getElementById("graphik0") // Wallpaper engine
-var donneesdate=[JSON.parse(DateTime)]
-var donneesjoueurs=["Team Fortress 2"]
-var graphik0=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:donneesdate,
-        datasets:[{
-            label:" Nb de joueurs",
-            data:donneesParMois,
-            borderWidth:2,
-            borderColor:'#9e14b7',
-            backgroundColor:'#9e14b7'
-        }]
-    }
-})
-var ctx=document.getElementById("graphik11"); // Tous les jeux
-var graphik11=new Chart(ctx,{
-    type:'line',
-    data:{
-        labels:["Samedi 01 janv","Dimanche 02 janv","Lundi 03 janv","Mardi 04 janv","Mercredi 05 janv","Jeudi 06 janv","Vendredi 07 janv","Samedi 08 janv","Dimanche 09 janv","Lundi 10 janv","Mardi 11 janv","Mercredi 12 janv","Jeudi 13 janv","Vendredi 14 janv","Samedi 15 janv","Dimanche 16 janv","Lundi 17 janv","Mardi 18 janv","Mercredi 19 janv","Jeudi 20 janv","Vendredi 21 janv","Samedi 22 janv","Dimanche 23 janv","Lundi 24 janv","Mardi 25 janv","Mercredi 26 janv","Jeudi 27 janv","Vendredi 28 janv","Samedi 29 janv","Dimanche 30 janv","Lundi 31 janv","Mardi 01 fév","Mercredi 02 fév","Jeudi 03 fév","Vendredi 04 fév","Samedi 05 fév","Dimanche 06 fév","Lundi 07 fév","Mardi 08 fév","Mercredi 09 fév","Jeudi 10 fév","Vendredi 11 fév","Samedi 12 fév","Dimanche 13 fév","Lundi 14 fév","Mardi 15 fév","Mercredi 16 fév","Jeudi 17 fév","Vendredi 18 fév","Samedi 19 fév","Dimanche 20 fév","Lundi 21 fév","Mardi 22 fév","Mercredi 23 fév","Jeudi 24 fév","Vendredi 25 fév","Samedi 26 fév","Dimanche 27 fév","Lundi 28 fév","Mardi 01 mars","Mercredi 02 mars","Jeudi 03 mars","Vendredi 04 mars","Samedi 05 mars","Dimanche 06 mars","Lundi 07 mars","Mardi 08 mars","Mercredi 09 mars","Jeudi 10 mars","Vendredi 11 mars","Samedi 12 mars","Dimanche 13 mars","Lundi 14 mars","Mardi 15 mars","Mercredi 16 mars","Jeudi 17 mars","Vendredi 18 mars","Samedi 19 mars","Dimanche 20 mars","Lundi 21 mars","Mardi 22 mars","Mercredi 23 mars","Jeudi 24 mars","Vendredi 25 mars","Samedi 26 mars","Dimanche 27 mars","Lundi 28 mars","Mardi 29 mars","Mercredi 30 mars","Jeudi 31 mars","Vendredi 01 avr","Samedi 02 avr","Dimanche 03 avr","Lundi 04 avr","Mardi 05 avr","Mercredi 06 avr","Jeudi 07 avr","Vendredi 08 avr","Samedi 09 avr","Dimanche 10 avr","Lundi 11 avr","Mardi 12 avr","Mercredi 13 avr","Jeudi 14 avr","Vendredi 15 avr","Samedi 16 avr","Dimanche 17 avr","Lundi 18 avr","Mardi 19 avr","Mercredi 20 avr","Jeudi 21 avr","Vendredi 22 avr","Samedi 23 avr","Dimanche 24 avr","Lundi 25 avr","Mardi 26 avr","Mercredi 27 avr","Jeudi 28 avr","Vendredi 29 avr","Samedi 30 avr","Dimanche 01 mai","Lundi 02 mai","Mardi 03 mai","Mercredi 04 mai","Jeudi 05 mai","Vendredi 06 mai","Samedi 07 mai","Dimanche 08 mai","Lundi 09 mai","Mardi 10 mai","Mercredi 11 mai","Jeudi 12 mai","Vendredi 13 mai","Samedi 14 mai","Dimanche 15 mai","Lundi 16 mai","Mardi 17 mai","Mercredi 18 mai","Jeudi 19 mai","Vendredi 20 mai","Samedi 21 mai","Dimanche 22 mai","Lundi 23 mai","Mardi 24 mai","Mercredi 25 mai","Jeudi 26 mai","Vendredi 27 mai","Samedi 28 mai","Dimanche 29 mai","Lundi 30 mai","Mardi 31 mai","Mercredi 01 juin","Jeudi 02 juin","Vendredi 03 juin","Samedi 04 juin","Dimanche 05 juin","Lundi 06 juin","Mardi 07 juin","Mercredi 08 juin","Jeudi 09 juin","Vendredi 10 juin","Samedi 11 juin","Dimanche 12 juin","Lundi 13 juin","Mardi 14 juin","Mercredi 15 juin","Jeudi 16 juin","Vendredi 17 juin","Samedi 18 juin","Dimanche 19 juin","Lundi 20 juin","Mardi 21 juin","Mercredi 22 juin","Jeudi 23 juin","Vendredi 24 juin","Samedi 25 juin","Dimanche 26 juin","Lundi 27 juin","Mardi 28 juin","Mercredi 29 juin","Jeudi 30 juin","Vendredi 1 juill","Samedi 02 juill","Dimanche 03 juill","Lundi 04 juill","Mardi 05 juill","Mercredi 06 juill","Jeudi 07 juill","Vendredi 08 juill","Samedi 09 juill","Dimanche 10 juill","Lundi 11 juill","Mardi 12 juill","Mercredi 13 juill","Jeudi 14 juill","Vendredi 15 juill","Samedi 16 juill","Dimanche 17 juill","Lundi 18 juill","Mardi 19 juill","Mercredi 20 juill","Jeudi 21 juill","Vendredi 22 juill","Samedi 23 juill","Dimanche 24 juill","Lundi 25 juill","Mardi 26 juill","Mercredi 27 juill","Jeudi 28 juill","Vendredi 29 juill","Samedi 30 juill","Dimanche 31 juill","Lundi 01 août","Mardi 02 août","Mercredi 03 août","Jeudi 04 août","Vendredi 05 août","Samedi 06 août","Dimanche 07 août","Lundi 08 août","Mardi 09 août","Mercredi 10 août","Jeudi 11 août","Vendredi 12 août","Samedi 13 août","Dimanche 14 août","Lundi 15 août","Mardi 16 août","Mercredi 17 août","Jeudi 18 août","Vendredi 19 août","Samedi 20 août","Dimanche 21 août","Lundi 22 août","Mardi 23 août","Mercredi 24 août","Jeudi 25 août","Vendredi 26 août","Samedi 27 août","Dimanche 28 août","Lundi 29 août","Mardi 30 août","Mercredi 31 août","Jeudi 01 sept","Vendredi 02 sept","Samedi 03 sept","Dimanche 04 sept","Lundi 05 sept","Mardi 06 sept","Mercredi 07 sept","Jeudi 08 sept","Vendredi 09 sept","Samedi 10 sept","Dimanche 11 sept","Lundi 12 sept","Mardi 13 sept","Mercredi 14 sept","Jeudi 15 sept","Vendredi 16 sept","Samedi 17 sept","Dimanche 18 sept","Lundi 19 sept","Mardi 20 sept","Mercredi 21 sept","Jeudi 22 sept","Vendredi 23 sept","Samedi 24 sept","Dimanche 25 sept","Lundi 26 sept","Mardi 27 sept","Mercredi 28 sept","Jeudi 29 sept","Vendredi 30 sept",],
-        datasets:[{
-            label:" Nb de joueurs",
-                data:[//janv
-                    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                    //fév
-                    0,0,0,0,0,0,0,532476,506946,507123,688736,1325305,1316854,1098921,1119642,1135765,1090827,1102515,1134663,1174722,1074677,993849,949460,915628,881133,930509,962906,856177,
-                    //mars
-                    842508,819652,815473,759648,847376,908335,829633,822383,805722,679494,630067,646991,660051,591163,511063,519268,528089,486390,518719,537588,483641,460199,449751,413761,389102,402922,420758,369916,355086,336539,353933,
-                    //avril
-                    347729,375010,399715,356506,359193,351755,367612,374802,401124,426706,405794,397493,369797,416018,441972,425987,462394,462085,462026,458832,393305,500139,536047,572602,556187,566673,560956,487900,499313,542609,
-                    //mai
-                    586540,568246,567373,493101,573879,578536,588550,637078,623896,591542,574594,508050,423930,481919,563381,579329,583597,584612,524134,441528,440460,648260,646417,673024,668525,615744,733251,709234,704632,801364,737605,
-                    //juin
-                    715223,666383,683981,708926,798621,819349,829155,837419,451615,800400,843598,885968,880727,873694,727629,605751,551016,449382,273010,279843,306156,301666,289060,360567,293284,348754,341678,283820,226472,186986,
-                    //juillet
-                    173512,215308,254128,274205,280685,283863,292516,278280,305384,313083,285210,268757,268748,251334,151989,170008,204940,201638,201865,164256,230377,242342,267406,290788,288234,290423,243626,296884,311828,334027,352852,
-                    //août
-                    352344,340560,281060,156805,252770,151541,185135,203445,220056,181785,116685,121437,131118,137042,133695,147840,171335,225391,239071,228162,248196,240933,227548,187040,224258,238427,252565,264904,245050,216840,209736,
-                    //septembre
-                    130010,110209,125197,173803,179091,172439,147981,118215,183977,197303,212778,205722,203029,194204,223872,202612,217579,232767,218970,211398,175455,203625,145424,195236,214237,204425,188514,152300,226988,195928,
-                ], 
+            }]
+        }
+    })
+    //test graph
+    var ctx=document.getElementById("graphik11"); // Tous les jeux
+    var graphik11=new Chart(ctx,{
+        type:'line',
+        data:{
+            labels: dataDay,
+            datasets:[{
+                label:" Team Fortress 2 ",
+                data: dataTeamFortress2,
                 borderWidth:1,
                 borderColor:'#2b90dd',
-                backgroundColor:'#2b90dd',
-                data:[//janv
-                    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                    //fév
-                    0,0,0,0,0,0,0,532476,506946,507123,688736,1325305,1316854,1098921,1119642,1135765,1090827,1102515,1134663,1174722,1074677,993849,949460,915628,881133,930509,962906,856177,
-                    //mars
-                    842508,819652,815473,759648,847376,908335,829633,822383,805722,679494,630067,646991,660051,591163,511063,519268,528089,486390,518719,537588,483641,460199,449751,413761,389102,402922,420758,369916,355086,336539,353933,
-                    //avril
-                    347729,375010,399715,356506,359193,351755,367612,374802,401124,426706,405794,397493,369797,416018,441972,425987,462394,462085,462026,458832,393305,500139,536047,572602,556187,566673,560956,487900,499313,542609,
-                    //mai
-                    586540,568246,567373,493101,573879,578536,588550,637078,623896,591542,574594,508050,423930,481919,563381,579329,583597,584612,524134,441528,440460,648260,646417,673024,668525,615744,733251,709234,704632,801364,737605,
-                    //juin
-                    715223,666383,683981,708926,798621,819349,829155,837419,451615,800400,843598,885968,880727,873694,727629,605751,551016,449382,273010,279843,306156,301666,289060,360567,293284,348754,341678,283820,226472,186986,
-                    //juillet
-                    173512,215308,254128,274205,280685,283863,292516,278280,305384,313083,285210,268757,268748,251334,151989,170008,204940,201638,201865,164256,230377,242342,267406,290788,288234,290423,243626,296884,311828,334027,352852,
-                    //août
-                    352344,340560,281060,156805,252770,151541,185135,203445,220056,181785,116685,121437,131118,137042,133695,147840,171335,225391,239071,228162,248196,240933,227548,187040,224258,238427,252565,264904,245050,216840,209736,
-                    //septembre
-                    130010,110209,125197,173803,179091,172439,147981,118215,183977,197303,212778,205722,203029,194204,223872,202612,217579,232767,218970,211398,175455,203625,145424,195236,214237,204425,188514,152300,226988,195928,
-                ], 
+                backgroundColor:'#2b90dd',    
+            },{
+                label:" Dota 2 ",
+                data: dataDota2,
                 borderWidth:1,
-                borderColor:'#fff',
-                backgroundColor:'#fff'
-        }]
-    }
+                borderColor:'#e40000',
+                backgroundColor:'#e40000'
+            },{
+                label:" Counter-Strike: Global Offensive ",
+                data: dataCSGO,
+                borderWidth:1,
+                borderColor:'#27387d',
+                backgroundColor:'#27387d'
+            },{
+                label:" Terraria ",
+                data: dataTerraria,
+                borderWidth:1,
+                borderColor:'#c6b112',
+                backgroundColor:'#c6b112'
+            },{
+                label:" Grand Theft Auto V ",
+                data: dataGTAV,
+                borderWidth:1,
+                borderColor:'#ff9500',
+                backgroundColor:'#ff9500'
+            },{
+                label:" Wallpaper Engine",
+                data: dataWallpaperEngine,
+                borderWidth:1,
+                borderColor:'#9e14b7',
+                backgroundColor:'#9e14b7'
+            },{
+                label:" PUBG: Battlegrounds ",
+                data: dataPUBG, 
+                borderWidth:1,
+                borderColor:'#1dcec0',
+                backgroundColor:'#1dcec0'
+            },{
+                label:" Apex Legends ",
+                data: dataApexLegends,
+                borderWidth:1,
+                borderColor:'#db0f9a',
+                backgroundColor:'#db0f9a'
+            },{
+                label:" NARAKA: BLADEPOINT ",
+                data: dataNaraka,
+                borderWidth:1,
+                borderColor:'#87c015',
+                backgroundColor:'#87c015'
+            },{
+                label:" Lost Ark ",
+                data: dataLostArk,
+                borderWidth:1,
+                borderColor:'#2b90dd',
+                backgroundColor:'#2b90dd'
+            }]
+        }
+    })
+
 })
