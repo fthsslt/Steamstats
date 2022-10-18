@@ -39,6 +39,9 @@ main {
   padding:20px;
   color:#ffffff;
 }
+main h3{
+  text-align:center;
+}
 main p{
   text-align:center;
 }
