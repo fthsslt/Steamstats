@@ -229,5 +229,4 @@ fetchData().then(data => {
             }]
         }
     })
-
 })
