@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles2.css">
+    <link rel="icon" href="img/logosteam.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="slider.js"></script>
+    <title>Statistiques Steam</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="img/home.png" height="40">
+        </a>
+    </header>
+    <main>
+        <div class="container">
+            <div class="title">
+                <h1>Lost Ark</h1>
+            </div>
+            <br>
+            <div class="imgetdetails">
+                <div class="imgetprixgratuit">
+                    <img src="img/cover/lostark.webp" width="205"> 
+                    <p><b>Gratuit</b></p>
+                </div>
+                <div class="apercuetdetails">
+                    <div class="details">
+                        <h3>Date de sortie : 11 février 2022</h3>
+                        <p>Développeur : Tripod Studio & Smilegate RPG</p>
+                        <p>Genre : MMORPG</p>
+                    </div>
+                    <div class="apercu">
+                        Aperçu :
+                        <div id="slider">
+                            <ul id="slideWrap">
+                                <li class="slide"><img src="img/apercu/lostark1.webp" height="178.75" width="300"></li>
+                                <li class="slide"><img src="img/apercu/lostark2.webp" height="178.75" width="300"></li>
+                                <li class="slide"><img src="img/apercu/lostark3.webp" height="178.75" width="300"></li>
+                            </ul>
+                            <label id="prev" href="#"><b><</b></label>
+                            <label id="next" href="#"><b>></b></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="description">
+                <h3>Description :</h3>
+                <p>Embarquez-vous dans une odyssée en quête de l'Arche perdue dans un monde vaste et dynamique : explorez de nouvelles terres, cherchez des trésors perdus et relevez le défi de combats trépidants dans ce RPG free-to-play bourré d'action. </p>
+            </div>
+            <br>
+            <a class="link" href="https://store.steampowered.com/app/1599340/Lost_Ark/">
+                <div class="dlonsteam">
+                    <h2>Acheter sur Steam</h2>
+                </div>
+            </a>
+            <h2>Note :</h2>
+            <div class="textallcritik">
+                <p>Les notes ici sont attribuées à Lost Ark par les sites web spécialisés dans la critique de jeux vidéos les plus influentes.</p>
+            </div>
+            <div class="graphnote">
+                <canvas id="note1"></canvas>
+            </div>
+            <script>
+                var ctx=document.getElementById('note1').getContext('2d');
+                let chart = new Chart(ctx,{
+                    type:'radar',
+                    data:{
+                        labels:['JEUXACTU','Gameblog.fr','Jeuxvideo.com','Gamergen','Gamekult'],
+                        datasets:[
+                            {
+                                label:' Note ',
+                                backgroundColor:'#ffbf001a',
+                                borderColor:'#ffbf0085',
+                                borderWidth:2,
+                                data:[7.3,8,7.6,7.8,8.1],
+                            }
+                        ]
+                    },
+                    options:{
+                        scales: {
+                            r:{
+                                suggestedMin:0,
+                                suggestedMax:10,
+                                grid:{//Colonnes
+                                    color:'#ffffff2c'
+                                },
+                                angleLines:{//Colonnes
+                                    color:'#ffffff2c'
+                                },
+                                pointLabels: {//Noms autour du graph
+                                    color:'#fff',
+                                    fontSize:50
+                                },
+                                ticks: {//Unités
+                                    color:'#fff',
+                                    backdropColor:'#282828',
+                                    stepSize:2
+                                }
+                            }
+                        },
+                    }
+                })
+            </script>
+            <div class="textallcritik">
+                <p>Les sites web en question sont mis en évidences ci-dessous :</p>
+            </div>
+            <div class="allcritik">
+                <a href="https://www.jeuxactu.com/"><div class="critik">JEUXACTU</div></a>
+                <a href="https://www.gameblog.fr/"><div class="critik">Gameblog.fr</div></a>
+                <a href="https://www.jeuxvideo.com/"><div class="critik">Jeuxvideo.com</div></a>
+                <a href="https://www.gamergen.com/"><div class="critik">Gamergen</div></a>
+                <a href="https://www.gamekult.com/"><div class="critik">Gamekult</div></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
