@@ -148,3 +148,9 @@ footer p{
   padding-right:2vw;
   padding-bottom:1vh;
 } 
+.gif{
+    border-radius: 50%;
+}
+.steam{
+    filter: invert(1);
+}
