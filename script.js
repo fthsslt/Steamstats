@@ -21,7 +21,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:"Nb de joueurs",
+                label:" Nb de joueurs",
                 data: dataTeamFortress2,
                 borderWidth:1,
                 borderColor:'#00a70e',
@@ -40,7 +40,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:"Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataDota2,
                 borderWidth:1,
                 borderColor:'#e40000',
@@ -54,7 +54,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataCSGO,
                 borderWidth:1,
                 borderColor:'#27387d',
@@ -68,7 +68,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataTerraria,
                 borderWidth:1,
                 borderColor:'#c6b112',
@@ -82,7 +82,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataGTAV,
                 borderWidth:1,
                 borderColor:'#ff9500',
@@ -96,7 +96,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataWallpaperEngine,
                 borderWidth:1,
                 borderColor:'#9e14b7',
@@ -110,7 +110,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataPUBG, 
                 borderWidth:1,
                 borderColor:'#1dcec0',
@@ -124,7 +124,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataApexLegends,
                 borderWidth:1,
                 borderColor:'#db0f9a',
@@ -138,7 +138,7 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataNaraka,
                 borderWidth:1,
                 borderColor:'#87c015',
@@ -152,11 +152,11 @@ fetchData().then(data => {
         data:{
             labels: dataDay,
             datasets:[{
-                label:" Nb de joueurs",
+                label:" Nb de joueurs ",
                 data: dataLostArk,
                 borderWidth:1,
-                borderColor:'#2b90dd',
-                backgroundColor:'#2b90dd'
+                borderColor:'#4c9571',
+                backgroundColor:'#4c9571'
             }]
         }
     })
@@ -224,8 +224,8 @@ fetchData().then(data => {
                 label:" Lost Ark ",
                 data: dataLostArk,
                 borderWidth:1,
-                borderColor:'#2b90dd',
-                backgroundColor:'#2b90dd'
+                borderColor:'#4c9571',
+                backgroundColor:'#4c9571'
             }]
         }
     })
